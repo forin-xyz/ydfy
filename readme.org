@@ -1,3 +1,5 @@
+* 下载
+
 #+BEGIN_SRC shell
 git clone git@github.com:forin-xyz/ydfy.git
 #+END_SRC
@@ -12,6 +14,9 @@ or
 
 直接下载zip文件
 
+
+* 如何使用
+
 #+BEGIN_SRC shell
 cd ydfy
 ./ydfy
@@ -22,13 +27,13 @@ cd ydfy
 
 #+BEGIN_SRC shell
 cd ~
-,#如果在home(~)目录下没有bin文件夹创建之
+#如果在home(~)目录下没有bin文件夹创建之
 mkdir bin
 #+END_SRC
 
 然后在bin文件下创建一个名为ydfy的文件
 #+BEGIN_SRC shell
-,#! /usr/bin/env bash
+#! /usr/bin/env bash
 ./path/to/ydfy
 #+END_SRC
 将/path/to/替换为下载的文件夹所保存的目录
@@ -40,3 +45,20 @@ mkdir bin
 sudo chmod u+x ydfy
 #+END_SRC
 即完成
+
+* 查看帮助
+
+使用ydfy --help可以查看帮助文档
+
+* 目的
+
+创建这个程序的主要目的是在emacs可以更好的调用在线翻译程序。
+
+* 感谢帮助
+
+代码中的key值是从Github原有的有关有道翻译的代码库中借鉴过来的，
+在此非常感谢
+
+[[https://github.com/xingxing/youdao-translate.el][xingxing/youdao-translate.el]]
+
+[[https://github.com/felixonmars/ydcv][felixonmars/ydcv]]
