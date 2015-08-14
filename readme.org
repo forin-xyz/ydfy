@@ -49,6 +49,26 @@ sudo chmod u+x ydfy
 * 查看帮助
 
 使用ydfy --help可以查看帮助文档
+#+BEGIN_SRC shell
+ydfy --help
+ydfy -h
+#+END_SRC
+
+* 使用帮助
+
+#+BEGIN_SRC shell
+# 基本释义
+ydfy -b hello world
+# 翻译
+ydfy -t hello world
+# 网络释义
+ydfy -w hello world
+# 进入repl模式
+ydfy
+# 离开repl模式
+q
+# 或者按Ctrl-D
+#+END_SRC
 
 * 目的
 
