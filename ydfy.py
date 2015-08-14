@@ -1,30 +1,20 @@
 #!/usr/bin/env python3
 # coding: utf-8
 '''
+Youdao Fanyi
 Author: Cheng Rui
 
-###
-will do:
-函数(基础函数)
-t words 翻译
-b words 基础解释
-w words 网络释义
-函数组合:
-tbw words
-
-==> 将main函数拆分
-==> 所有函数都返回自身
-==> t b w words
-###
-写成一个列表就非常棒了
-我准备提交给Github的版本和自己使用的版本将是不一样的
+# Youdao Fanyi Api:
 http://fanyi.youdao.com/openapi.do?keyfrom={0}&key={1}&type=data&doctype=json&version=1.1&q={query}
+
 #option 1
 keyfrom=wadexing
 key=89413557
+
 #option 2
 keyfrom=YouDaoCV
 key=659600698
+
 #option 3
 keyfrom = 'atupal-site'
 key = '401682907'
