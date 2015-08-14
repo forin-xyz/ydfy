@@ -1,0 +1,42 @@
+#+BEGIN_SRC shell
+git clone git@github.com:forin-xyz/ydfy.git
+#+END_SRC
+
+or
+
+#+BEGIN_SRC shell
+git clone https://github.com/forin-xyz/ydfy.git
+#+END_SRC
+
+or
+
+直接下载zip文件
+
+#+BEGIN_SRC shell
+cd ydfy
+./ydfy
+#+END_SRC
+就可以通过命令行使用有道翻译了
+
+如果想直接通过命令行调用，可以这样
+
+#+BEGIN_SRC shell
+cd ~
+,#如果在home(~)目录下没有bin文件夹创建之
+mkdir bin
+#+END_SRC
+
+然后在bin文件下创建一个名为ydfy的文件
+#+BEGIN_SRC shell
+,#! /usr/bin/env bash
+./path/to/ydfy
+#+END_SRC
+将/path/to/替换为下载的文件夹所保存的目录
+
+然后保存这个文件
+
+最后
+#+BEGIN_SRC shell
+sudo chmod u+x ydfy
+#+END_SRC
+即完成
