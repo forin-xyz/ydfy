@@ -19,7 +19,7 @@ key=659600698
 keyfrom = 'atupal-site'
 key = '401682907'
 '''
-import json
+import json, os
 from urllib import request as urq
 from urllib.parse import quote
 from argparse import ArgumentParser
@@ -35,6 +35,14 @@ def _json(urlopen):
     return wrapper
 
 urlopen_json = _json(urq.urlopen)
+
+def ydfy_history(path=None):
+    if not path:
+        home = os.environ['HOME']
+        path = os.path.join(home, '.ydfy_history')
+    else:
+        path = os.path.abspath(path)
+    return path
 
 def content(fn):
     with open(fn, 'r') as f:
@@ -91,7 +99,7 @@ def print_basic(basic):
     print_explains(basic['explains'])
 
 
-def print_result(res, t, b, w):
+def print_result(res, t, b, w, word=None):
     if res['errorCode'] != 0:
         print('errorCode:', res['errorCode'])
         return None
@@ -101,10 +109,13 @@ def print_result(res, t, b, w):
         print_basic(res['basic'])
     if w and 'web' in res:
         print_web_info(res['web'])
+    with open(ydfy_history(), 'a') as yh:
+        yh.write(word+'\n')
+
 
 def translate(word, t = True, b = True, w = True):
     res = lookup_word(word)
-    print_result(res, t, b, w)
+    print_result(res, t, b, w, word)
 
 def main():
     parser = ArgumentParser(description="Youdao Console Version")
@@ -131,11 +142,11 @@ def main():
         res = lookup_word(word)
         if not (options.translate or options.basic or options.web):
             options.basic = True
-        print_result(res, options.translate, options.basic, options.web)
+        print_result(res, options.translate, options.basic, options.web, word)
     if options.file:
         word = content(options.file)
         res = lookup_word(word)
-        print_result(res, True, options.basic, options.web)
+        print_result(res, True, options.basic, options.web, word)
 
     if not any( getattr(options, '__dict__').values() ):
         while True:
@@ -160,7 +171,7 @@ def main():
                 options.basic = False
                 options.web = False
 
-            print_result(res, options.translate, options.basic, options.web)
+            print_result(res, options.translate, options.basic, options.web, word)
 
 if __name__ == '__main__':
     main()
